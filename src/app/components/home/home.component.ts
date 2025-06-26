@@ -23,7 +23,7 @@ export class HomeComponent {
       title:"Finir tp todo",
       content: 'vite vite',
       deadline: new Date('2025/06/25 17:00:00'),
-      status: STATUS.TODO,
+      status: STATUS.BUG,
     },
         {
       id: 1,
@@ -54,5 +54,12 @@ export class HomeComponent {
       status: STATUS.TODO,
     }
   ];
+
+    statusOptions:{label:string,value:number}[] = Object.entries(STATUS)
+    .filter(([key, value]) => typeof value === 'number') // évite les doublons inversés
+    .map(([key, value]) => ({
+      label: key.replace('_', ' '), // remplacement des _ par un espace
+      value: value as number
+    }));
 
 }

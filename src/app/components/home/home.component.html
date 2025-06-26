@@ -1,26 +1,55 @@
-<div class="d-flex justify-content-evenly flex-wrap gap-4">
+<h1 class="bold">TODO LIST</h1>
 
+<form>
+  <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input type="text" class="form-control" id="title" placeholder="Mon todo" />
+  </div>
+  <div class="mb-3">
+    <label for="content" class="form-label">Content</label>
+    <input type="text" class="form-control" id="content" placeholder="" />
+  </div>
+  <select class="form-select" aria-label="Default select example">
+    <option selected disabled>Choose a Status</option>
+
+    @for (option of statusOptions; track option.value) {
+
+    <option [value]="option.value">{{ option.label }}</option>
+    }
+  </select>
+  <div class="mb-3">
+    <label for="deadline" class="form-label">Deadline</label>
+    <input type="datetime-local" class="form-control" id="deadline" placeholder="" />
+  </div>
+
+  <button mat-flat-button>Save</button>
+</form>
+
+<div class="d-flex justify-content-evenly flex-wrap gap-4">
   @for(todo of todos; track todo.id){
   <mat-card class="example-card col-4" appearance="outlined">
-      <mat-card-header>
-        <mat-card-title>{{ todo.title }}</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>{{ todo.content }}</p>
-        <time>{{ (todo.deadline | date:"EEEE dd MMMM YYYY" | titlecase )+ " " +
-                 (todo.deadline | date:"à HH'h'mm")}} </time>
-      </mat-card-content>
-      <mat-chip-set class="px-2">
-        <mat-chip>{{ todo.status }}</mat-chip>
-      </mat-chip-set>
-      <div class="example-button-container">
-        <button mat-fab extended>
-          <mat-icon>add_to_photos</mat-icon>
-          Delete
-        </button>
-      </div>
+    <mat-card-header>
+      <mat-card-title>{{ todo.title }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ todo.content }}</p>
+      <time
+        >{{
+          (todo.deadline | date : "EEEE dd MMMM YYYY" | titlecase) +
+            " " +
+            (todo.deadline | date : "à HH'h'mm")
+        }}
+      </time>
+    </mat-card-content>
+    <mat-chip-set class="px-2">
+      <mat-chip>{{ todo.status }}</mat-chip>
+    </mat-chip-set>
+    <div class="example-button-container">
+      <button mat-fab extended>
+        <mat-icon>add_to_photos</mat-icon>
+        Delete
+      </button>
+    </div>
   </mat-card>
   }
-
-
 </div>
