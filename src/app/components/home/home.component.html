@@ -1,25 +1,34 @@
 <h1 class="bold">TODO LIST</h1>
 
-<form>
+<form [formGroup]="todoForm" (ngSubmit)="onSubmit()" >
   <div class="mb-3">
     <label for="title" class="form-label">Title</label>
-    <input type="text" class="form-control" id="title" placeholder="Mon todo" />
+    <input formControlName="title" type="text" class="form-control border" [class.border-danger]="isFieldInvalid('email')" id="title" placeholder="Mon todo" />
+
+    @if (isFieldInvalid("email")) {
+      <div class="mt-1 text-sm text-danger">
+        <!-- {{ }} interpolation - affiche le résultat de getFieldError('email') -->
+        <!-- Cette méthode TS retourne le message d'erreur approprié -->
+        {{ getFieldError('title') }}
+      </div>
+    }
   </div>
   <div class="mb-3">
     <label for="content" class="form-label">Content</label>
-    <input type="text" class="form-control" id="content" placeholder="" />
+    <input formControlName="content" type="text" class="form-control" id="content" placeholder="" />
   </div>
-  <select class="form-select" aria-label="Default select example">
+  <select formControlName="status" class="form-select" aria-label="Default select example">
     <option selected disabled>Choose a Status</option>
 
     @for (option of statusOptions; track option.value) {
 
-    <option [value]="option.value">{{ option.label }}</option>
+    <option [value]="option.value">{{ option.label | titlecase }}</option>
     }
   </select>
   <div class="mb-3">
     <label for="deadline" class="form-label">Deadline</label>
-    <input type="datetime-local" class="form-control" id="deadline" placeholder="" />
+    <input formControlName="deadline" type="datetime-local" class="form-control" id="deadline" placeholder="" />
+
   </div>
 
   <button mat-flat-button>Save</button>
