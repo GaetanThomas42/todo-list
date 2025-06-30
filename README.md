@@ -38,15 +38,17 @@
 - Création du formulaire pour ajouter un Todo dans home.component.html ✅
   - value par defaut NOW deadline et rendre date optionnelle ⭐
 
-- Ajout ngSubmit coté HTML du form sur submitTodo() 
 
+- Form builder
+  - coté TS  créer formGroup + fromControls
+  - coté HTML reliér formGroup + fromControls
+
+- Ajout ngSubmit coté HTML du form sur submitTodo() 
+    (ngSubmit)="submitTodo()"
 - Méthode submitTodo() ( à créer ) dans le ts 
 
   - console.log pour afficher quelque chose a la soumission du formulaire 
 
-  - Form builder
-    - coté TS
-    - coté HTML
 
   - console log état du form Valid dans submitTodo()
   - console log data du form dans submitTodo()

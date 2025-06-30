@@ -1,34 +1,45 @@
 <h1 class="bold">TODO LIST</h1>
 
 <div class="container">
-  <form>
-  <div class="mb-3">
-    <label for="title" class="form-label">Title</label>
-    <input type="text" class="form-control border" id="title" placeholder="Mon todo" />
-  </div>
-  <div class="mb-3">
-    <label for="content" class="form-label">Content</label>
-    <input type="text" class="form-control" id="content" placeholder="" />
-  </div>
-  <select class="form-select" aria-label="Default select example">
-    <option selected disabled>Choose a Status</option>
-    <option selected >tytytyyty a Status</option>
-    <option selected >fttyyt a Status</option>
-    <option selected >ffgfgfg a Status</option>
+  <form [formGroup]="todoForm" (ngSubmit)="submitTodo()">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input
+        formControlName="title"
+        type="text"
+        class="form-control border"
+        id="title"
+        placeholder="Mon todo"
 
-    <!-- @for (option of statusOptions; track option.value) {
+      />
+    </div>
+    <div class="mb-3">
+      <label for="content" class="form-label">Content</label>
+      <input
+      formControlName="content"
+      type="text"
+      class="form-control"
+      id="content"
+      placeholder="" />
+    </div>
+     <div class="mb-3">
+      <label for="status" class="form-label">Status</label>
+    <select formControlName="status" class="form-select" aria-label="Default select example">
+      <option selected disabled>Choose a Status</option>
+
+      @for (option of statusOptions; track option.value) {
 
     <option [value]="option.value">{{ option.label | titlecase }}</option>
 
-    } -->
-  </select>
-
-  <div class="mb-3">
-    <label for="deadline" class="form-label">Deadline</label>
-    <input type="datetime-local" class="form-control" id="deadline" />
-  </div>
-  <button mat-flat-button>Save</button>
-</form>
+    }
+    </select>
+</div>
+    <div class="mb-3">
+      <label  for="deadline" class="form-label">Deadline</label>
+      <input formControlName="deadline" type="datetime-local" class="form-control" id="deadline" />
+    </div>
+    <button mat-flat-button>Save</button>
+  </form>
 </div>
 
 <div class="d-flex justify-content-evenly flex-wrap gap-4">
