@@ -48,8 +48,8 @@
     - coté TS
     - coté HTML
 
-  - console log état du form Valid
-  - console log data du form
+  - console log état du form Valid dans submitTodo()
+  - console log data du form dans submitTodo()
 
   - Test du formulaire en cas d'erreurs 
 
