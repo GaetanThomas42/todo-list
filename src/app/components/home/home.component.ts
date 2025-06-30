@@ -20,6 +20,7 @@ export class HomeComponent {
 
   isSubmitted:boolean = false;
   todoForm: FormGroup;
+
   todos:Todo[] = [
     {
       id: 1,
@@ -58,6 +59,8 @@ export class HomeComponent {
     }
   ];
 
+  //Créer un tableau contenant un label et une value pour avoir un option pour chaque STATUS
+  // Nous bouclerons ce tableau dans le html
   statusOptions:{label:string,value:number}[] = Object.entries(STATUS)
     .filter(([key, value]) => typeof value === 'number') // évite les doublons inversés
     .map(([key, value]) => ({
@@ -65,6 +68,7 @@ export class HomeComponent {
       value: value as number
   }));
 
+  //Création du formulaire dans un constructor
   constructor(private fb: FormBuilder) {
     console.log(this.statusOptions)
     //Création du form
@@ -81,26 +85,29 @@ export class HomeComponent {
 
 
   onSubmit() {
-     console.log('SUBMIT');
+    console.log('SUBMIT');
     this.isSubmitted = true;
     if(this.todoForm.valid === false){
-
-
+      //Création d'un objet todo
+      
     }
 
   }
 
+  // Méthode qui prend en paramètre un "nom de champ" et renverra si le champ est invalide
   isFieldInvalid(fieldName: string): boolean {
-  const field = this.todoForm.get(fieldName);
-  // Retourne true si TOUTES ces conditions sont vraies :
-  //    champ existe ET champ invalide ET (champ dirty OU touched OU formulaire est soumis)
-  return Boolean(field && field.invalid && (field.dirty || field.touched || this.isSubmitted));
-			// Boolean() créer un booléen d'après une donnée flasy ou truthy
+    const field = this.todoForm.get(fieldName);
+    // Retourne true si TOUTES ces conditions sont vraies :
+    //      champ existe ET champ invalide ET (champ dirty OU touched OU formulaire est soumis)
+    return Boolean(field && field.invalid && (field.dirty || field.touched || this.isSubmitted));
+        // Boolean() créer un booléen d'après une donnée flasy ou truthy
 }
 
+  // Méthode qui prend en paramètre un "nom de champ" et renverra une erreur texte associé
   getFieldError(fieldName: string): any{
 
     const field = this.todoForm.get(fieldName);
+
     // Vérifier si le champ existe et a des erreurs
     if (field && field.errors) {
       // field.errors est un objet avec les types d'erreurs comme clés
