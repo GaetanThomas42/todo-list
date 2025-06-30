@@ -35,8 +35,9 @@
   - Prévoir les boutons d'actions ✅
   - Création d'un pipe perso qui prend en param un nombre ( enum STATUS ) et renvoie selon le status un émoji et le statu en texte ( ⭐ bonus )
 
-- Création du formulaire dans home.component.html 
-
+- Création du formulaire dans home.component.html ✅
+  - value NOW deadline ⭐
+  
 - ngSubmit coté HTML du form sur submitTodo() 
 
 - Méthode submitTodo() dans le ts 
@@ -50,9 +51,9 @@
   - Création d'un Todo avec les datas
 
 
-- Création du TodoService qui sera en charge de la gestion des Todos stockés en localStorage 
+- Création du TodoService qui sera en charge de la gestion des Todos stockés en localStorage ✅
 
-- Stocker les datas dans un tableau dans TodoService
+- Stocker les datas dans un tableau dans TodoService ✅
 
 - loadData() 
   localStorage.getItem("todos")
@@ -60,8 +61,7 @@
   Sinon convertion data et renvoie Todo[]
 
 - saveData(todo: Todo) 
-  - ajout au todos existants
-  - appel de la méthode du service pour update du storage
+  - ajout aux todos existants avec les données du formulaire
 
 - deleteData(todoId: number) 
   - recherche dans le tableau avec l'id  ( array.find() ) et le delete
@@ -73,7 +73,7 @@
 - Routes /home et /about ->app.routes.ts
 - Navbar routeLink
 
-- Affichage des todos par catégorie
+- Affichage des todos par status
 
 
 
