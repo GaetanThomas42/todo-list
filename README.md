@@ -33,23 +33,31 @@
 - Affichage des todo colonne de card ✅
   - Affichage formatage des datas avec les pipes ✅
   - Prévoir les boutons d'actions ✅
-  - Création d'un pipe perso qui prend en param un nombre ( enum STATUS ) et renvoie selon le status un émoji et le statu en texte ( ⭐ bonus )
+  - Création d'un pipe perso qui prend en param un nombre ( enum STATUS ) et renvoie selon le status un émoji et le status en texte ( ⭐ bonus )
 
-- Création du formulaire dans home.component.html ✅
-  - value NOW deadline ⭐
-  
-- ngSubmit coté HTML du form sur submitTodo() 
+- Création du formulaire poua ajouter un Todo dans home.component.html ✅
+  - value par defaut NOW deadline ⭐
+
+- Ajout ngSubmit coté HTML du form sur submitTodo() 
 
 - Méthode submitTodo() dans le ts 
 
-  - Récupération data ( console.log ) 
+  - console.log pour afficher quelque chose a la soumisison du formulaire 
 
-  - Test du formulaire en cas d'erreurs ( retirer validation HTML via inspecteur ) 
+  - Form builder
+    - coté TS
+    - coté HTML
+
+  - console log état du form Valid
+  - console log data du form
+
+  - Test du formulaire en cas d'erreurs 
 
   - Affichage erreur de chaque champs 
  
   - Création d'un Todo avec les datas
 
+  - Affichage des erreursseulement si le form a été soumis
 
 - Création du TodoService qui sera en charge de la gestion des Todos stockés en localStorage ✅
 
