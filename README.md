@@ -35,14 +35,14 @@
   - Prévoir les boutons d'actions ✅
   - Création d'un pipe perso qui prend en param un nombre ( enum STATUS ) et renvoie selon le status un émoji et le status en texte ( ⭐ bonus )
 
-- Création du formulaire poua ajouter un Todo dans home.component.html ✅
-  - value par defaut NOW deadline ⭐
+- Création du formulaire pour ajouter un Todo dans home.component.html ✅
+  - value par defaut NOW deadline et rendre date optionnelle ⭐
 
 - Ajout ngSubmit coté HTML du form sur submitTodo() 
 
-- Méthode submitTodo() dans le ts 
+- Méthode submitTodo() ( à créer ) dans le ts 
 
-  - console.log pour afficher quelque chose a la soumisison du formulaire 
+  - console.log pour afficher quelque chose a la soumission du formulaire 
 
   - Form builder
     - coté TS
