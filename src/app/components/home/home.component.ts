@@ -1,25 +1,22 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { STATUS, Todo } from '../../models/todo.interface';
+
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
-import { STATUS, Todo } from '../../models/todo.interface';
-import { CommonModule } from '@angular/common';
 import {MatIconModule} from '@angular/material/icon';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule, MatCardModule, MatIconModule, MatChipsModule, MatButtonModule],
+  imports: [MatCardModule, MatIconModule, MatChipsModule, MatButtonModule, CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
+  // Nécessaire pour Angular Material
   changeDetection: ChangeDetectionStrategy.OnPush,
-
 })
 export class HomeComponent {
-
-  isSubmitted:boolean = false;
-  todoForm: FormGroup;
 
   todos:Todo[] = [
     {
@@ -31,29 +28,15 @@ export class HomeComponent {
     },
     {
       id: 2,
-      title:"Finir tp todo",
-      content: 'vite vite',
-      deadline: new Date('2025/06/25 17:00:00'),
-      status: STATUS.TODO,
+      title:"Trouver coupable",
+      content: '',
+      deadline: new Date('2025/06/30 17:00:00'),
+      status: STATUS.IN_PROGRESS,
     },
     {
       id: 3,
-      title:"Finir tp todo",
-      content: 'vite vite',
-      deadline: new Date('2025/06/25 17:00:00'),
-      status: STATUS.TODO,
-    },
-    {
-      id: 4,
-      title:"Finir tp todo",
-      content: 'vite vite',
-      deadline: new Date('2025/06/25 17:00:00'),
-      status: STATUS.TODO,
-    },
-        {
-      id: 5,
-      title:"Finir tp todo",
-      content: 'vite vite',
+      title:"Test",
+      content: '',
       deadline: new Date('2025/06/25 17:00:00'),
       status: STATUS.TODO,
     }
@@ -67,59 +50,5 @@ export class HomeComponent {
       label: key.replace('_', ' '), // remplacement des _ par un espace
       value: value as number
   }));
-
-  //Création du formulaire dans un constructor
-  constructor(private fb: FormBuilder) {
-    console.log(this.statusOptions)
-    //Création du form
-    this.todoForm = this.fb.group({
-
-      title: ['', [Validators.required, Validators.minLength(2)]],
-      content: ['', [Validators.required]],
-      status: ['', [Validators.required]],
-      deadline: ['', [Validators.required]],
-
-
-    });
-  }
-
-
-  onSubmit() {
-    console.log('SUBMIT');
-    this.isSubmitted = true;
-    if(this.todoForm.valid === false){
-      //Création d'un objet todo
-      
-    }
-
-  }
-
-  // Méthode qui prend en paramètre un "nom de champ" et renverra si le champ est invalide
-  isFieldInvalid(fieldName: string): boolean {
-    const field = this.todoForm.get(fieldName);
-    // Retourne true si TOUTES ces conditions sont vraies :
-    //      champ existe ET champ invalide ET (champ dirty OU touched OU formulaire est soumis)
-    return Boolean(field && field.invalid && (field.dirty || field.touched || this.isSubmitted));
-        // Boolean() créer un booléen d'après une donnée flasy ou truthy
-}
-
-  // Méthode qui prend en paramètre un "nom de champ" et renverra une erreur texte associé
-  getFieldError(fieldName: string): any{
-
-    const field = this.todoForm.get(fieldName);
-
-    // Vérifier si le champ existe et a des erreurs
-    if (field && field.errors) {
-      // field.errors est un objet avec les types d'erreurs comme clés
-      // Ex: { required: true, email: true, minlength: { requiredLength: 6, actualLength: 3 } }
-      if (field.errors['required']) return `${fieldName} est obligatoire`;
-      if (field.errors['email']) return 'Format email invalide';
-      if (field.errors['minlength']) {
-        // L'erreur minlength contient des infos détaillées
-        return `Minimum ${field.errors['minlength'].requiredLength} caractères`;
-      }
-  }
-
-}
 
 }

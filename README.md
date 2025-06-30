@@ -35,22 +35,24 @@
   - Prévoir les boutons d'actions ✅
   - Création d'un pipe perso qui prend en param un nombre ( enum STATUS ) et renvoie selon le status un émoji et le statu en texte ( ⭐ bonus )
 
-- Création du formulaire dans home.component.html ✅
+- Création du formulaire dans home.component.html 
 
-- ngSubmit coté HTML du form sur submitTodo() ✅
+- ngSubmit coté HTML du form sur submitTodo() 
 
-- Méthode submitTodo() dans le ts ✅
+- Méthode submitTodo() dans le ts 
 
-  - Récupération data ( console.log ) ✅
+  - Récupération data ( console.log ) 
 
-  - Test du formulaire en cas d'erreurs ( retirer validation HTML via inspecteur ) ✅
+  - Test du formulaire en cas d'erreurs ( retirer validation HTML via inspecteur ) 
 
-  - Affichage erreur de chaque champs ✅
+  - Affichage erreur de chaque champs 
  
   - Création d'un Todo avec les datas
 
 
 - Création du TodoService qui sera en charge de la gestion des Todos stockés en localStorage 
+
+- Stocker les datas dans un tableau dans TodoService
 
 - loadData() 
   localStorage.getItem("todos")
