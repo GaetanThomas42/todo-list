@@ -5,7 +5,7 @@
     <label for="title" class="form-label">Title</label>
     <input formControlName="title" type="text" class="form-control border" [class.border-danger]="isFieldInvalid('email')" id="title" placeholder="Mon todo" />
 
-    @if (isFieldInvalid("email")) {
+    @if (isFieldInvalid("title")) {
       <div class="mt-1 text-sm text-danger">
         <!-- {{ }} interpolation - affiche le résultat de getFieldError('email') -->
         <!-- Cette méthode TS retourne le message d'erreur approprié -->
