@@ -20,28 +20,43 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class HomeComponent {
 
-  private todoSevice: TodoService = inject(TodoService);
+  private todoService: TodoService = inject(TodoService);
   private formBuilder: FormBuilder = inject(FormBuilder);
 
+  isSubmitted: boolean = false;
+  isLoading: boolean = false;
   todoForm: FormGroup;
-  todos: Todo[] = this.todoSevice.getTodos();
+  todos: Todo[] = this.todoService.getTodos();
   //Recuperer les options possibles  LABEL value
-  statusOptions = this.todoSevice.getOptions();
+  statusOptions = this.todoService.getOptions();
 
   constructor() {
     //Création du formGroup qui contient les formControls
     this.todoForm = this.formBuilder.group({
-      title: ['', [Validators.required]],
-      content: ['', []],
+      title: ['test title', [Validators.required]],
+      content: ['test content', []],
       status: ['', [Validators.required]],
       deadline: ['', [Validators.required]],
     });
   }
 
   submitTodo() {
-    console.log('FORM SUBMIT.');
-    console.log(this.todoForm.value);
+    this.isSubmitted = true;
+
+    if (this.todoForm.valid) {
+      console.log("FORM VALID");
+
+      //Créer un Todo avec les datas du form
+      const newTodo:Todo = this.todoForm.value;
+      console.log(newTodo);
+      this.todoService.saveTodo(newTodo);
+      //Appel de la methode du Service pour ajouter le todo au storage
+    }
 
   }
+
+
+
+
 
 }

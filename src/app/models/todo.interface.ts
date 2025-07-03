@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http"
 
 export interface Todo {
-  id: number
+  id: string
   title: string
   content: string
   status: number

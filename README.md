@@ -96,22 +96,21 @@
 - La combinaison avec [formControl] évite le comportement natif du formulaire ( rechargement ...) et permet le bon fonctionnement de notre ✅
 - IL faudra cependant penser à vider le formulaire en cas de besoin gérer les erreurs dynamiquement etc. ✅
 ### Récupération état du form / champs, valeurs, erreurs
-
   - console log état du form avec todoForm.valid   ou  todoForm.invalid   ✅
   - console log data du form dans  todoForm.value✅
   - Récuperer un formControl précis avec todoForm.get() dans une autre variable✅
   - Ex: todoForm.get("title") todoForm.get("content")✅
   - Récuperer un seul champ permet de connaitre sa validité, ses erreurs, value ....✅
-  - console log des erreur du champ title avec  todoForm.get("title").?errors    (? obligatoire car null possible)✅
+  - console log des erreur du champ title avec  todoForm.get("title").?errors    (? obligatoire car null possible) ✅
   
 ### Validation du form
-  - Ajouter un if qui vérifie sur le formGroup est valide✅
-    - Si valide✅
+  - Ajouter un if qui vérifie sur le formGroup est valide ✅
+    - Si valide
       - Récupération des datas dans une variable typée Todo ✅
-      - Push de la variable en premier dans le tableau todo✅
-      - Vérifier que le nouveau Todo est affiché✅
+      - Push de la variable en premier dans le tableau todos 
+      - Vérifier que le nouveau Todo est affiché
 
-### Problème, quel ID possède les nouveaux todos ?
+### Problème, quel ID possède les nouveaux todos ? ⭐
 - Nous devons définir un ID réel et unique afin d'assurer le bon fonctionnement des features delete, update et le tracking des boucles for      
 - Gestion par UUID
 - https://www.uuidgenerator.net/dev-corner/javascript
@@ -119,14 +118,14 @@
 - Entre la création du Todo et le push dans les datas, assigner un uuid a todo.id
 - 
 ### Gestion des erreurs
-  - Test du formulaire en cas d'erreurs, rien n'est ajouté au tableau✅
-  - Ajout d'une propriété isSubmitted = false au composant✅
-  - Dans la méthode de submit ( première ligne ) passer le booléen a true ✅
-  - Cela permettra de ne pas afficher les erreurs constamment, seulement si l'on a validé le form✅
-  - Récuperer méthodes getFieldError() et isFieldInvalid() dans le cours, copié et corrigé au besoin✅
-  - Récupérer le code HTML associé aux appels de ces méthodes et l'ajouter sous chaque champ ✅
-  - Ces méthodes permettent de simplifier la gestion des erreurs ave cune base de code facilement scalable✅
-  - Mettre en place le système✅
+  - Test du formulaire en cas d'erreurs, rien n'est ajouté au tableau
+  - Ajout d'une propriété isSubmitted = false au composant
+  - Dans la méthode de submit ( première ligne ) passer le booléen a true 
+  - Cela permettra de ne pas afficher les erreurs constamment, seulement si l'on a validé le form
+  - Récuperer méthodes getFieldError() et isFieldInvalid() dans le cours, copié et corrigé au besoin
+  - Récupérer le code HTML associé aux appels de ces méthodes et l'ajouter sous chaque champ 
+  - Ces méthodes permettent de simplifier la gestion des erreurs ave cune base de code facilement scalable
+  - Mettre en place le système
 
 
 ### Stockage des données dans le localStorage
