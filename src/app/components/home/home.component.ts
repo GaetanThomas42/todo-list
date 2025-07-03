@@ -48,9 +48,11 @@ export class HomeComponent {
 
       //Créer un Todo avec les datas du form
       const newTodo:Todo = this.todoForm.value;
+      // TODO ajouter un id au todo créé
+      //Trouve rune solution pour generer un id unique ( uuid )
       console.log(newTodo);
-      this.todoService.saveTodo(newTodo);
       //Appel de la methode du Service pour ajouter le todo au storage
+      this.todoService.saveTodo(newTodo);
     }
 
   }

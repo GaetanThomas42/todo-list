@@ -107,15 +107,15 @@
   - Ajouter un if qui vérifie sur le formGroup est valide ✅
     - Si valide
       - Récupération des datas dans une variable typée Todo ✅
-      - Push de la variable en premier dans le tableau todos 
-      - Vérifier que le nouveau Todo est affiché
+      - Push de la variable en premier dans le tableau todos ✅
+      - Vérifier que le nouveau Todo est affiché ✅
 
 ### Problème, quel ID possède les nouveaux todos ? ⭐
-- Nous devons définir un ID réel et unique afin d'assurer le bon fonctionnement des features delete, update et le tracking des boucles for      
-- Gestion par UUID
+- Nous devons définir un ID réel et unique afin d'assurer le bon fonctionnement des features delete, update et le tracking des boucles for ✅       
+- Gestion par UUID ⭐
 - https://www.uuidgenerator.net/dev-corner/javascript
 - Modifier l'interface Todo id number en string
-- Entre la création du Todo et le push dans les datas, assigner un uuid a todo.id
+- Entre la création du Todo et le push dans les datas, assigner un uuid a todo.id ⭐
 - 
 ### Gestion des erreurs
   - Test du formulaire en cas d'erreurs, rien n'est ajouté au tableau
